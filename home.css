@@ -1,8 +1,24 @@
+.loginHead {
+  font-size: 45px; }
+
+.loginDescr {
+  text-align: center;
+  padding: 0;
+  margin: 0; }
+
+.loginInput {
+  z-index: 0;
+  width: 200px;
+  height: 30px;
+  border: 2px #dddddd solid;
+  border-radius: 5px;
+  padding: 2px 10px;
+  margin: 20px; }
 html {
   font-family: 'Special Elite', cursive; }
 
 body {
-  background-image: url("/src/screens/home/img/backgroundImg.jpg");
+  background-image: url("img/backgroundImg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   margin: 0;
@@ -10,22 +26,6 @@ body {
 
 canvas {
   display: block; }
-
-.navBar {
-  height: 40px;
-  background-color: #222222;
-  color: whitesmoke;
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-  padding: 20px 200px; }
-  .navBar ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 40px; }
 .modal {
   width: 600px;
   max-width: 100%;
@@ -53,7 +53,8 @@ canvas {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.6); }
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1; }
 
 .close-button {
   border: 0;
@@ -63,27 +64,17 @@ canvas {
   font-size: 1.3rem;
   border-radius: 5px;
   cursor: pointer; }
-.loginHead {
-  font-size: 45px; }
-
-.loginDescr {
-  text-align: center;
-  padding: 0;
-  margin: 0; }
-
-.loginInput {
-  z-index: 0;
-  width: 200px;
-  height: 30px;
-  border: 2px #dddddd solid;
-  border-radius: 5px;
-  padding: 2px 10px;
-  margin: 20px; }
 .battleArea {
   margin-top: 30px;
   width: 100%;
   display: flex;
   flex-direction: row; }
+
+.attackBtn {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%); }
 .healthBar {
   display: flex;
   flex-direction: row;
@@ -126,6 +117,13 @@ canvas {
   background-color: #AB3C3C;
   margin-top: 2px;
   box-shadow: 0 4px #ab3c3c; }
+
+.blinkHealth {
+  animation: blinker 2s linear infinite; }
+
+@keyframes blinker {
+  50% {
+    opacity: 0; } }
 .chooseTask {
   height: inherit;
   text-align: center; }
@@ -147,3 +145,32 @@ canvas {
     border-radius: 5px;
     padding: 2px 10px;
     margin: 20px; }
+.yourLose {
+  text-align: center; }
+  .yourLose .messageHead {
+    font-size: 45px; }
+
+.userScore {
+  text-align: center;
+  font-size: 25px; }
+.navBar {
+  height: 40px;
+  background-color: #222222;
+  color: whitesmoke;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  padding: 20px 100px; }
+  .navBar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    font-size: 40px; }
+
+.monster {
+  margin-left: auto; }
+
+.stage {
+  transform: translateX(-50%);
+  left: 50%;
+  position: absolute; }

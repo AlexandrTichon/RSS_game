@@ -34798,13 +34798,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var babel_polyfill__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! babel-polyfill */ "./node_modules/babel-polyfill/lib/index.js");
 /* harmony import */ var babel_polyfill__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(babel_polyfill__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _components_navBar_navBar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/navBar/navBar */ "./src/components/navBar/navBar.js");
-/* harmony import */ var _components_healthBar_healthBar__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/healthBar/healthBar */ "./src/components/healthBar/healthBar.js");
-/* harmony import */ var _components_login_login__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/login/login */ "./src/components/login/login.js");
-/* harmony import */ var _screens_chooseTask_chooseTask__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./screens/chooseTask/chooseTask */ "./src/screens/chooseTask/chooseTask.js");
-/* harmony import */ var _screens_battle_battle__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./screens/battle/battle */ "./src/screens/battle/battle.js");
-/* harmony import */ var _screens_login_loginParam__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./screens/login/loginParam */ "./src/screens/login/loginParam.js");
-/* harmony import */ var _screens_battle_sptitesLogic__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./screens/battle/sptitesLogic */ "./src/screens/battle/sptitesLogic.js");
-/* harmony import */ var _screens_chooseTask_chooseTaskParam__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./screens/chooseTask/chooseTaskParam */ "./src/screens/chooseTask/chooseTaskParam.js");
+/* harmony import */ var _screens_battle_battle__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./screens/battle/battle */ "./src/screens/battle/battle.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -34830,14 +34824,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
  // components
 
 
-
-
-
  // parametrs to componemts
-
-
-
-
 
 var Game =
 /*#__PURE__*/
@@ -34858,17 +34845,7 @@ function (_React$Component) {
     _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Game)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
-      gameStart: false,
       gameStage: ''
-    });
-
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "chooseTaskElement", react__WEBPACK_IMPORTED_MODULE_0___default.a.createRef());
-
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "setStart", function () {
-      _this.setState({
-        gameStart: true,
-        gameStage: 'Login'
-      });
     });
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "setBattle", function () {
@@ -34877,17 +34854,14 @@ function (_React$Component) {
       });
     });
 
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "setAttack", function () {
-      _this.chooseTaskElement.current.openWindow();
-
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "setGameStatus", function (status) {
       _this.setState({
-        gameStage: 'Attack'
+        gameStage: status
       });
     });
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "setEnd", function () {
       _this.setState({
-        gameStart: false,
         gameStage: 'Game over'
       });
     });
@@ -34898,37 +34872,57 @@ function (_React$Component) {
   _createClass(Game, [{
     key: "render",
     value: function render() {
-      var _this$state = this.state,
-          gameStart = _this$state.gameStart,
-          gameStage = _this$state.gameStage;
+      var gameStage = this.state.gameStage;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "game"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navBar_navBar__WEBPACK_IMPORTED_MODULE_3__["default"], {
         gameStage: gameStage
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_healthBar_healthBar__WEBPACK_IMPORTED_MODULE_4__["default"], {
-        setAttack: this.setAttack
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_login_login__WEBPACK_IMPORTED_MODULE_5__["default"], {
-        param: _screens_login_loginParam__WEBPACK_IMPORTED_MODULE_8__["loginDescr"],
-        btnParam: _screens_login_loginParam__WEBPACK_IMPORTED_MODULE_8__["buttonParam"],
-        setStart: this.setStart
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_screens_battle_battle__WEBPACK_IMPORTED_MODULE_7__["default"], {
-        setBattle: this.setBattle
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_screens_chooseTask_chooseTask__WEBPACK_IMPORTED_MODULE_6__["default"], {
-        ref: this.chooseTaskElement,
-        param: _screens_chooseTask_chooseTaskParam__WEBPACK_IMPORTED_MODULE_10__["taskList"],
-        btnParam: _screens_chooseTask_chooseTaskParam__WEBPACK_IMPORTED_MODULE_10__["btnParam"],
-        gameStage: gameStage,
-        chooseTask: _screens_chooseTask_chooseTaskParam__WEBPACK_IMPORTED_MODULE_10__["taskNum"]
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_screens_battle_battle__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        setBattle: this.setBattle,
+        setGameStatus: this.setGameStatus
       }));
     }
   }]);
 
   return Game;
-}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component); // startGame();
-
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
 react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Game, null), document.getElementById('root'));
-Object(_screens_battle_sptitesLogic__WEBPACK_IMPORTED_MODULE_9__["default"])();
+
+/***/ }),
+
+/***/ "./src/components/healthBar/healthAnimation.js":
+/*!*****************************************************!*\
+  !*** ./src/components/healthBar/healthAnimation.js ***!
+  \*****************************************************/
+/*! exports provided: removeUserHealthBlock, removeweMonsterHealthBlock */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeUserHealthBlock", function() { return removeUserHealthBlock; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeweMonsterHealthBlock", function() { return removeweMonsterHealthBlock; });
+function removeUserHealthBlock() {
+  var parent = document.querySelector('.userHealth');
+  var healthBlock = parent.lastChild;
+  healthBlock.style.backgroundColor = 'red';
+  healthBlock.className = 'healthBlock blinkHealth';
+  setTimeout(function () {
+    parent.removeChild(healthBlock);
+  }, 4000);
+}
+
+function removeweMonsterHealthBlock() {
+  var parent = document.querySelector('.monsterHealth');
+  var healthBlock = parent.firstChild;
+  healthBlock.style.backgroundColor = 'red';
+  healthBlock.className = 'healthBlock blinkHealth';
+  setTimeout(function () {
+    parent.removeChild(healthBlock);
+  }, 4000);
+}
+
+
 
 /***/ }),
 
@@ -34943,99 +34937,37 @@ Object(_screens_battle_sptitesLogic__WEBPACK_IMPORTED_MODULE_9__["default"])();
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
-
- // to check props validation
-
-var HealthBar =
-/*#__PURE__*/
-function (_React$Component) {
-  _inherits(HealthBar, _React$Component);
-
-  function HealthBar() {
-    var _getPrototypeOf2;
-
-    var _this;
-
-    _classCallCheck(this, HealthBar);
-
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(HealthBar)).call.apply(_getPrototypeOf2, [this].concat(args)));
-
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "propTypes", {
-      setAttack: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.func
-    });
-
-    return _this;
-  }
-
-  _createClass(HealthBar, [{
-    key: "render",
-    value: function render() {
-      var setAttack = this.props.setAttack;
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "healthBar"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "userHealth"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "healthBlock"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "healthBlock"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "healthBlock"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "healthBlock"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "healthBlock"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        type: "button",
-        onClick: setAttack,
-        className: classnames__WEBPACK_IMPORTED_MODULE_1___default()('attackBtn', 'btn')
-      }, "ATTACK")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "monsterHealth"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "healthBlock"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "healthBlock"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "healthBlock"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "healthBlock"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "healthBlock"
-      })));
-    }
-  }]);
-
-  return HealthBar;
-}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+var HealthBar = function HealthBar() {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "healthBar"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "userHealth"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "healthBlock"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "healthBlock"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "healthBlock"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "healthBlock"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "healthBlock"
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "monsterHealth"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "healthBlock"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "healthBlock"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "healthBlock"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "healthBlock"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "healthBlock"
+  })));
+};
 
 /* harmony default export */ __webpack_exports__["default"] = (HealthBar);
 
@@ -35049,6 +34981,44 @@ function (_React$Component) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./src/components/healthBar/resetHealth.js":
+/*!*************************************************!*\
+  !*** ./src/components/healthBar/resetHealth.js ***!
+  \*************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+function resetHealth() {
+  // remove health
+  var monsterHealth = document.querySelector('.monsterHealth');
+
+  while (monsterHealth.firstChild) {
+    monsterHealth.removeChild(monsterHealth.firstChild);
+  }
+
+  var userHealth = document.querySelector('.userHealth');
+
+  while (userHealth.firstChild) {
+    userHealth.removeChild(userHealth.firstChild);
+  } // create health blocks
+
+
+  for (var index = 0; index < 5; index += 1) {
+    var userHealthBlock = document.createElement('div');
+    var monsterHealthBlock = document.createElement('div');
+    userHealthBlock.className = 'healthBlock';
+    monsterHealthBlock.className = 'healthBlock';
+    userHealth.appendChild(userHealthBlock);
+    monsterHealth.appendChild(monsterHealthBlock);
+  }
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (resetHealth);
 
 /***/ }),
 
@@ -35067,6 +35037,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _navBar_monsterNameGenerate__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../navBar/monsterNameGenerate */ "./src/components/navBar/monsterNameGenerate.js");
+/* harmony import */ var _screens_login_loginParam__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../screens/login/loginParam */ "./src/screens/login/loginParam.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -35090,6 +35062,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
  // to check props validation
+
+
+
 
 var Login =
 /*#__PURE__*/
@@ -35114,13 +35089,25 @@ function (_React$Component) {
     });
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "propTypes", {
-      param: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.shape,
-      btnParam: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.string,
-      setStart: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.func
+      setGameStatus: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.func
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "openWindow", function () {
+      _this.setState({
+        isOpenModal: true
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "setStart", function () {
+      var setGameStatus = _this.props.setGameStatus;
+      setGameStatus('Login');
     });
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "setName", function () {
-      document.getElementById('userName').textContent = document.getElementById('userInput').value;
+      // set username in gameBar
+      document.querySelector('.playerName').textContent = document.getElementById('userInput').value; // set monster name in gameBar
+
+      document.querySelector('.monster').textContent = Object(_navBar_monsterNameGenerate__WEBPACK_IMPORTED_MODULE_3__["default"])();
 
       _this.setState({
         isOpenModal: false
@@ -35133,10 +35120,6 @@ function (_React$Component) {
   _createClass(Login, [{
     key: "render",
     value: function render() {
-      var _this$props = this.props,
-          param = _this$props.param,
-          btnParam = _this$props.btnParam,
-          setStart = _this$props.setStart;
       var isOpenModal = this.state.isOpenModal;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: classnames__WEBPACK_IMPORTED_MODULE_1___default()('modal-overlay', {
@@ -35152,15 +35135,15 @@ function (_React$Component) {
         "aria-labelledby": "modalTitle",
         "aria-describedby": "modalDescription",
         role: "dialog",
-        onMouseMove: setStart // change Game state
+        onMouseMove: this.setStart // change Game state
 
-      }, param, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, _screens_login_loginParam__WEBPACK_IMPORTED_MODULE_4__["loginDescr"], react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: this.setName,
         type: "button",
         className: "close-button",
         id: "close-button",
-        title: btnParam
-      }, btnParam)));
+        title: _screens_login_loginParam__WEBPACK_IMPORTED_MODULE_4__["buttonParam"]
+      }, _screens_login_loginParam__WEBPACK_IMPORTED_MODULE_4__["buttonParam"])));
     }
   }]);
 
@@ -35179,6 +35162,30 @@ function (_React$Component) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./src/components/navBar/monsterNameGenerate.js":
+/*!******************************************************!*\
+  !*** ./src/components/navBar/monsterNameGenerate.js ***!
+  \******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+function monsterNameGaneration() {
+  var adjectives = ['ugly', 'smelly', 'dirty', 'stupid', 'terrible', 'anrgy', 'great'];
+  var type = ['ork', 'gnom', 'goblin', 'werewolf', 'rock'];
+  var manName = ['Antoha', 'Alex', 'Will', 'Lukas', 'Garry', 'Leonardo', 'Dimon', 'Fred'];
+  var monstAdj = adjectives[Math.floor(Math.random() * (adjectives.length - 1))];
+  var monstType = type[Math.floor(Math.random() * (type.length - 1))];
+  var monstManName = manName[Math.floor(Math.random() * (manName.length - 1))];
+  var monsterFullName = "".concat(monstAdj, " ").concat(monstType, " ").concat(monstManName);
+  return monsterFullName;
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (monsterNameGaneration);
 
 /***/ }),
 
@@ -35260,13 +35267,12 @@ function (_React$Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "navBar"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-        className: "playerName",
-        id: "userName"
+        className: "playerName"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "stage"
       }, gameStage), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-        className: "Monster"
-      }, ' ', "Monster", ' '))));
+        className: "monster"
+      }))));
     }
   }]);
 
@@ -35277,38 +35283,100 @@ function (_React$Component) {
 
 /***/ }),
 
-/***/ "./src/components/tasks/math.js":
-/*!**************************************!*\
-  !*** ./src/components/tasks/math.js ***!
-  \**************************************/
+/***/ "./src/components/navBar/navBar.sass":
+/*!*******************************************!*\
+  !*** ./src/components/navBar/navBar.sass ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./src/components/tasks/tasks.js":
+/*!***************************************!*\
+  !*** ./src/components/tasks/tasks.js ***!
+  \***************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
-  taskGroup: 'math',
-  question: 'How much is',
-  typeOfAnswer: 'number',
-  questionsArray: [{
-    task: '2*2',
-    answer: '4'
-  }, {
-    task: '1*9',
-    answer: '9'
-  }, {
-    task: '5*5',
-    answer: '25'
-  }, {
-    task: '34+62',
-    answer: '98'
-  }, {
-    task: '67-45',
-    answer: '22'
-  }, {
-    task: '60/5',
-    answer: '12'
-  }]
+  math: {
+    question: 'How much is',
+    typeOfAnswer: 'number',
+    questionsArray: [{
+      task: '2*2',
+      answer: '4'
+    }, {
+      task: '1*9',
+      answer: '9'
+    }, {
+      task: '5*5',
+      answer: '25'
+    }, {
+      task: '34+62',
+      answer: '96'
+    }, {
+      task: '67-45',
+      answer: '22'
+    }, {
+      task: '60/5',
+      answer: '12'
+    }, {
+      task: '12*3',
+      answer: '36'
+    }, {
+      task: '5+149',
+      answer: '154'
+    }, {
+      task: '69/3',
+      answer: '23'
+    }, {
+      task: '60/15',
+      answer: '4'
+    }, {
+      task: '72+56',
+      answer: '128'
+    }, {
+      task: '60/5',
+      answer: '12'
+    }, {
+      task: '60*5',
+      answer: '300'
+    }, {
+      task: '32+3028',
+      answer: '3060'
+    }]
+  },
+  translate: {
+    question: 'Translate to english',
+    typeOfAnswer: 'string',
+    questionsArray: [{
+      task: 'машина',
+      answer: 'car'
+    }, {
+      task: 'дом',
+      answer: 'house'
+    }, {
+      task: 'компьютер',
+      answer: 'computer'
+    }, {
+      task: 'кошка',
+      answer: 'cat'
+    }, {
+      task: 'молоко',
+      answer: 'milk'
+    }, {
+      task: 'обезьяна',
+      answer: 'monkey'
+    }, {
+      task: 'ключ',
+      answer: 'key'
+    }]
+  }
 });
 
 /***/ }),
@@ -35326,6 +35394,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _components_healthBar_resetHealth__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/healthBar/resetHealth */ "./src/components/healthBar/resetHealth.js");
+/* harmony import */ var _sptitesLogic__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./sptitesLogic */ "./src/screens/battle/sptitesLogic.js");
+/* harmony import */ var _components_healthBar_healthAnimation__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/healthBar/healthAnimation */ "./src/components/healthBar/healthAnimation.js");
+/* harmony import */ var _score_score__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../score/score */ "./src/screens/score/score.js");
+/* harmony import */ var _components_navBar_monsterNameGenerate__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../components/navBar/monsterNameGenerate */ "./src/components/navBar/monsterNameGenerate.js");
+/* harmony import */ var _components_healthBar_healthBar__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../components/healthBar/healthBar */ "./src/components/healthBar/healthBar.js");
+/* harmony import */ var _task_task__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../task/task */ "./src/screens/task/task.js");
+/* harmony import */ var _gameEnd_gameEnd__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../gameEnd/gameEnd */ "./src/screens/gameEnd/gameEnd.js");
+/* harmony import */ var _components_login_login__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../components/login/login */ "./src/components/login/login.js");
+/* harmony import */ var _task_taskParam__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../task/taskParam */ "./src/screens/task/taskParam.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -35347,7 +35425,26 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
- // default battle for 2 persons
+
+
+
+
+
+
+
+
+
+
+ // check person lose or no
+
+function checkGameOver(health) {
+  if (health - 20 === 0) {
+    return true;
+  }
+
+  return false;
+} // default battle for 2 persons
+
 
 var Battle =
 /*#__PURE__*/
@@ -35368,62 +35465,153 @@ function (_React$Component) {
     _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Battle)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
-      battleWinner: null,
       userHealth: 100,
       monsterHealth: 100,
       roundNumber: 1
     });
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "propTypes", {
-      setBattle: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func
+      setBattle: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func,
+      setGameStatus: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "taskElement", react__WEBPACK_IMPORTED_MODULE_0___default.a.createRef());
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "GameEndElement", react__WEBPACK_IMPORTED_MODULE_0___default.a.createRef());
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "LoginElement", react__WEBPACK_IMPORTED_MODULE_0___default.a.createRef());
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "setGameOver", function () {
+      var setGameStatus = _this.props.setGameStatus;
+      setGameStatus('Game Over');
+      Object(_score_score__WEBPACK_IMPORTED_MODULE_5__["writeScore"])(_this.state.roundNumber - 1);
+
+      _this.GameEndElement.current.openWindow();
+
+      _this.setState({
+        userHealth: 100,
+        monsterHealth: 100,
+        roundNumber: 1
+      });
+
+      Object(_sptitesLogic__WEBPACK_IMPORTED_MODULE_3__["default"])(); // redraw canwas
+
+      Object(_components_healthBar_resetHealth__WEBPACK_IMPORTED_MODULE_2__["default"])(); // reset health visualisation
+
+      document.querySelector('.playerName').textContent = null;
+
+      _this.LoginElement.current.openWindow();
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "setAttack", function () {
+      var setGameStatus = _this.props.setGameStatus;
+
+      _this.taskElement.current.openWindow();
+
+      setGameStatus('Attack');
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "getDamage", function (person) {
+      switch (person) {
+        case 'user':
+          _this.damageUser();
+
+          break;
+
+        case 'monster':
+          _this.damageMonster();
+
+          break;
+
+        default:
+          _this.damageUser();
+
+          break;
+      }
     });
 
     return _this;
   }
 
   _createClass(Battle, [{
-    key: "setNextRound",
-    value: function setNextRound() {
-      this.setState({
-        roundNumber: roundNumber + 1
-      });
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      Object(_sptitesLogic__WEBPACK_IMPORTED_MODULE_3__["default"])();
     }
   }, {
-    key: "useSpell",
-    value: function useSpell() {
-      this.setState({
-        userHealth: userHealth + 20
+    key: "setNextRound",
+    value: function setNextRound() {
+      document.querySelector('.monster').textContent = Object(_components_navBar_monsterNameGenerate__WEBPACK_IMPORTED_MODULE_6__["default"])(); // generate new monster
+
+      Object(_sptitesLogic__WEBPACK_IMPORTED_MODULE_3__["default"])();
+      Object(_components_healthBar_resetHealth__WEBPACK_IMPORTED_MODULE_2__["default"])(); // reset health visualisation
+
+      this.setState(function (prevState) {
+        return {
+          roundNumber: prevState.roundNumber + 1,
+          userHealth: 100,
+          monsterHealth: 100
+        };
       });
     }
   }, {
     key: "damageUser",
     value: function damageUser() {
-      this.setState({
-        userHealth: userHealth - 20
-      });
+      if (!checkGameOver(this.state.userHealth)) {
+        var damageSound = new Audio('audio/damageUser.mp3');
+        damageSound.play();
+        Object(_components_healthBar_healthAnimation__WEBPACK_IMPORTED_MODULE_4__["removeUserHealthBlock"])();
+        this.setState(function (prevState) {
+          return {
+            userHealth: prevState.userHealth - 20
+          };
+        });
+      } else this.setGameOver();
     }
   }, {
     key: "damageMonster",
     value: function damageMonster() {
-      this.setState({
-        monsterHealth: monsterHealth - 20
-      });
+      if (!checkGameOver(this.state.monsterHealth)) {
+        var damageSound = new Audio('audio/damageMonster.mp3');
+        damageSound.play();
+        Object(_components_healthBar_healthAnimation__WEBPACK_IMPORTED_MODULE_4__["removeweMonsterHealthBlock"])();
+        this.setState(function (prevState) {
+          return {
+            monsterHealth: prevState.monsterHealth - 20
+          };
+        });
+      } else this.setNextRound(); // if monster lose, you go to the next round
+
     }
   }, {
     key: "render",
     value: function render() {
       var _this$state = this.state,
-          battleWinner = _this$state.battleWinner,
           userHealth = _this$state.userHealth,
           monsterHealth = _this$state.monsterHealth,
           roundNumber = _this$state.roundNumber;
       var setBattle = this.props.setBattle;
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_login_login__WEBPACK_IMPORTED_MODULE_10__["default"], {
+        setGameStatus: this.props.setGameStatus,
+        ref: this.LoginElement
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_healthBar_healthBar__WEBPACK_IMPORTED_MODULE_7__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "battle"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("canvas", {
         className: "battleArea",
         id: "battleArea",
         onMouseMove: setBattle
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "button",
+        onClick: this.setAttack,
+        className: "attackBtn btn"
+      }, "ATTACK")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_task_task__WEBPACK_IMPORTED_MODULE_8__["default"], {
+        getDamage: this.getDamage,
+        ref: this.taskElement,
+        taskId: Object(_task_taskParam__WEBPACK_IMPORTED_MODULE_11__["taskNum"])(),
+        btnParam: _task_taskParam__WEBPACK_IMPORTED_MODULE_11__["btnParam"]
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_gameEnd_gameEnd__WEBPACK_IMPORTED_MODULE_9__["default"], {
+        ref: this.GameEndElement,
+        completeRounds: roundNumber - 1
       }));
     }
   }]);
@@ -35472,11 +35660,11 @@ function drawEllipse(centerX, centerY, width, height) {
   context.closePath();
 }
 
-var ExportImg =
+var DrawBattle =
 /*#__PURE__*/
 function () {
-  function ExportImg(userParam, monsterParam) {
-    _classCallCheck(this, ExportImg);
+  function DrawBattle(userParam, monsterParam) {
+    _classCallCheck(this, DrawBattle);
 
     this.userParam = userParam;
     this.monsterParam = monsterParam;
@@ -35491,7 +35679,7 @@ function () {
     this.allImg = this.userParam.imgList.concat(this.monsterParam.imgList);
   }
 
-  _createClass(ExportImg, [{
+  _createClass(DrawBattle, [{
     key: "updateBreath",
     value: function updateBreath() {
       if (this.breathDir === 1) {
@@ -35516,7 +35704,7 @@ function () {
     key: "redrawUser",
     value: function redrawUser() {
       this.x = 245;
-      this.y = 400;
+      this.y = 430;
       drawEllipse(this.x + 40, this.y + 29, 160 - this.breathAmt, 8); // draw shadow
 
       var context = document.querySelector('#battleArea').getContext('2d'); // images draw in full sizes
@@ -35545,9 +35733,9 @@ function () {
   }, {
     key: "redrawMonster",
     value: function redrawMonster() {
-      this.x = 900;
+      this.x = 1100;
       this.y = 290;
-      drawEllipse(this.x + 150, this.y + 280, 600 - 2 * this.breathAmt, 15); // draw shadow
+      drawEllipse(this.x + 100, this.y + 186, 400 - 2 * this.breathAmt, 15); // draw shadow
 
       var context = document.querySelector('#battleArea').getContext('2d'); // images draw in full sizes
 
@@ -35569,7 +35757,7 @@ function () {
           requestAnimationFrame(_this.redrawFrame.bind(_this));
         };
 
-        _this.imagesM[element].src = "".concat(_this.monsterParam.source, "M1_").concat(element, ".").concat(_this.monsterParam.imgType);
+        _this.imagesM[element].src = "".concat(_this.monsterParam.source, "M").concat(Math.floor(Math.random() * 3) + 1, "_").concat(element, ".").concat(_this.monsterParam.imgType);
       });
       this.userParam.imgList.forEach(function (element) {
         _this.images[element] = new Image();
@@ -35584,13 +35772,13 @@ function () {
     }
   }]);
 
-  return ExportImg;
+  return DrawBattle;
 }();
 
 function resizeCanvas() {
   var canvas = document.querySelector('#battleArea');
   canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
+  canvas.height = 550;
 }
 
 function prepareCanvas() {
@@ -35599,7 +35787,7 @@ function prepareCanvas() {
 
   window.addEventListener('resize', resizeCanvas, false);
   var userImgList = ['leftArm', 'legs', 'torso', 'rightArm', 'head', 'hair'];
-  var userSource = './components/sprites/user/';
+  var userSource = 'img/user/';
   var userImgType = 'png';
   var userAnimationPos = {
     leftArm: {
@@ -35632,33 +35820,31 @@ function prepareCanvas() {
     source: userSource,
     imgType: userImgType,
     animationPos: userAnimationPos
-  }; // const USER = new ExportImg('user', userImgList, userSource, userImgType, userAnimationPos);
-  // USER.loadImages();
-  // draw monster character
+  }; // draw monster character
 
   var monsterImgList = ['leftArm', 'legs', 'torso', 'rightArm', 'head'];
-  var monsterSource = './components/sprites/monster/';
+  var monsterSource = 'img/monster/';
   var monsterImgType = 'png';
   var monsterAnimationPos = {
     leftArm: {
-      x: 250,
-      y: -190
+      x: 166,
+      y: -126
     },
     legs: {
       x: 0,
       y: 0
     },
     torso: {
-      x: -8,
-      y: -212
+      x: -5,
+      y: -138
     },
     head: {
-      x: -40,
-      y: -290
+      x: -26,
+      y: -193
     },
     rightArm: {
-      x: -140,
-      y: -30
+      x: -93,
+      y: -20
     }
   };
   var monsterCharacterParam = {
@@ -35667,7 +35853,7 @@ function prepareCanvas() {
     imgType: monsterImgType,
     animationPos: monsterAnimationPos
   };
-  var BATTLE = new ExportImg(userCharacterParam, monsterCharacterParam);
+  var BATTLE = new DrawBattle(userCharacterParam, monsterCharacterParam);
   BATTLE.loadImages();
 }
 
@@ -35675,10 +35861,10 @@ function prepareCanvas() {
 
 /***/ }),
 
-/***/ "./src/screens/chooseTask/chooseTask.js":
-/*!**********************************************!*\
-  !*** ./src/screens/chooseTask/chooseTask.js ***!
-  \**********************************************/
+/***/ "./src/screens/gameEnd/gameEnd.js":
+/*!****************************************!*\
+  !*** ./src/screens/gameEnd/gameEnd.js ***!
+  \****************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -35688,8 +35874,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
 /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _score_score__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../score/score */ "./src/screens/score/score.js");
+/* harmony import */ var _gameEndParam__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./gameEndParam */ "./src/screens/gameEnd/gameEndParam.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -35712,42 +35898,37 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
- // to check props validation
 
-var ChooseTask =
+
+
+var GameEnd =
 /*#__PURE__*/
 function (_React$Component) {
-  _inherits(ChooseTask, _React$Component);
+  _inherits(GameEnd, _React$Component);
 
-  function ChooseTask() {
+  function GameEnd() {
     var _getPrototypeOf2;
 
     var _this;
 
-    _classCallCheck(this, ChooseTask);
+    _classCallCheck(this, GameEnd);
 
     for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
 
-    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(ChooseTask)).call.apply(_getPrototypeOf2, [this].concat(args)));
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(GameEnd)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
       isOpenModal: false
     });
 
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "propTypes", {
-      param: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.shape,
-      btnParam: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.string,
-      taskNum: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.func
-    });
-
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "openWindow", function () {
-      document.querySelector('.userAnswer').value = null;
-
       _this.setState({
         isOpenModal: true
       });
+
+      Object(_score_score__WEBPACK_IMPORTED_MODULE_2__["readScore"])();
     });
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "closeWindow", function () {
@@ -35759,13 +35940,9 @@ function (_React$Component) {
     return _this;
   }
 
-  _createClass(ChooseTask, [{
+  _createClass(GameEnd, [{
     key: "render",
     value: function render() {
-      var _this$props = this.props,
-          param = _this$props.param,
-          btnParam = _this$props.btnParam,
-          taskNum = _this$props.taskNum;
       var isOpenModal = this.state.isOpenModal;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: classnames__WEBPACK_IMPORTED_MODULE_1___default()('modal-overlay', {
@@ -35781,72 +35958,57 @@ function (_React$Component) {
         "aria-labelledby": "modalTitle",
         "aria-describedby": "modalDescription",
         role: "dialog"
-      }, param, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, _gameEndParam__WEBPACK_IMPORTED_MODULE_3__["message"], react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "scoreBoard"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "button",
         className: "close-button",
         id: "close-button",
-        title: btnParam,
+        title: _gameEndParam__WEBPACK_IMPORTED_MODULE_3__["btnParam"],
         onClick: this.closeWindow
-      }, btnParam)));
+      }, _gameEndParam__WEBPACK_IMPORTED_MODULE_3__["btnParam"])));
     }
   }]);
 
-  return ChooseTask;
+  return GameEnd;
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
-/* harmony default export */ __webpack_exports__["default"] = (ChooseTask);
+/* harmony default export */ __webpack_exports__["default"] = (GameEnd);
 
 /***/ }),
 
-/***/ "./src/screens/chooseTask/chooseTaskParam.js":
-/*!***************************************************!*\
-  !*** ./src/screens/chooseTask/chooseTaskParam.js ***!
-  \***************************************************/
-/*! exports provided: taskList, btnParam, taskNum */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "taskList", function() { return taskList; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "btnParam", function() { return btnParam; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "taskNum", function() { return taskNum; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _components_tasks_math__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/tasks/math */ "./src/components/tasks/math.js");
- // import task
-
-
-var tasks = _components_tasks_math__WEBPACK_IMPORTED_MODULE_1__["default"];
-
-var taskNum = function taskNum() {
-  return Math.floor(Math.random() * (tasks.questionsArray.length - 1)) + 1;
-};
-
-var taskList = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-  className: "chooseTask"
-}, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
-  className: "head"
-}, "Answer the question"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-  className: "question"
-}, tasks.question), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-  className: "task"
-}, tasks.questionsArray[taskNum()].task, ' ', "= ?"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-  type: "number",
-  className: "userAnswer"
-}));
-var btnParam = 'choose';
-
-
-/***/ }),
-
-/***/ "./src/screens/chooseTask/chooseTaskParam.sass":
-/*!*****************************************************!*\
-  !*** ./src/screens/chooseTask/chooseTaskParam.sass ***!
-  \*****************************************************/
+/***/ "./src/screens/gameEnd/gameEnd.sass":
+/*!******************************************!*\
+  !*** ./src/screens/gameEnd/gameEnd.sass ***!
+  \******************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./src/screens/gameEnd/gameEndParam.js":
+/*!*********************************************!*\
+  !*** ./src/screens/gameEnd/gameEndParam.js ***!
+  \*********************************************/
+/*! exports provided: message, btnParam */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "message", function() { return message; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "btnParam", function() { return btnParam; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+var message = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  className: "yourLose"
+}, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+  className: "messageHead"
+}, "Sorry, you can't play without health."));
+var btnParam = 'Reset game';
+
 
 /***/ }),
 
@@ -35901,10 +36063,284 @@ var buttonParam = 'ENTER';
 
 /***/ }),
 
+/***/ "./src/screens/score/score.js":
+/*!************************************!*\
+  !*** ./src/screens/score/score.js ***!
+  \************************************/
+/*! exports provided: writeScore, readScore */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "writeScore", function() { return writeScore; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "readScore", function() { return readScore; });
+function readScore() {
+  var scoreBoard = JSON.parse(localStorage.getItem('gameScore'));
+  var scoreBoardBlock = document.querySelector('.scoreBoard');
+
+  for (var index = 0; index < scoreBoard.players.length; index += 1) {
+    var userScore = document.createElement('div');
+    userScore.className = 'userScore';
+    scoreBoardBlock.appendChild(userScore);
+    userScore.innerHTML = "<span>".concat(scoreBoard.players[index].username, "       ").concat(scoreBoard.players[index].score, "</span>");
+  }
+}
+
+function writeScore(userScore) {
+  // 'gameScore' is a key
+  if (localStorage.getItem('gameScore') === null) {
+    var score = {};
+    score.players = [];
+    score.players.push({
+      username: document.querySelector('.playerName').textContent,
+      score: userScore
+    });
+    localStorage.setItem('gameScore', JSON.stringify(score));
+  } else {
+    var _score = JSON.parse(localStorage.getItem('gameScore'));
+
+    localStorage.clear();
+
+    _score.players.push({
+      username: document.querySelector('.playerName').textContent,
+      score: userScore
+    });
+
+    localStorage.setItem('gameScore', JSON.stringify(_score));
+  }
+}
+
+
+
+/***/ }),
+
+/***/ "./src/screens/task/task.js":
+/*!**********************************!*\
+  !*** ./src/screens/task/task.js ***!
+  \**********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _taskParam__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./taskParam */ "./src/screens/task/taskParam.js");
+/* harmony import */ var _components_tasks_tasks__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/tasks/tasks */ "./src/components/tasks/tasks.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+ // to check props validation
+
+
+
+
+var Task =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(Task, _React$Component);
+
+  function Task() {
+    var _getPrototypeOf2;
+
+    var _this;
+
+    _classCallCheck(this, Task);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Task)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
+      isOpenModal: false
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "propTypes", {
+      taskId: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.number,
+      btnParam: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.string,
+      taskNum: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.func,
+      getDamage: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.func
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "answearInput", react__WEBPACK_IMPORTED_MODULE_0___default.a.createRef());
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "openWindow", function () {
+      document.querySelector('.userAnswer').value = null;
+
+      _this.setState({
+        isOpenModal: true
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "closeWindow", function () {
+      var _this$props = _this.props,
+          taskId = _this$props.taskId,
+          getDamage = _this$props.getDamage;
+
+      _this.setState({
+        isOpenModal: false
+      });
+
+      if (_components_tasks_tasks__WEBPACK_IMPORTED_MODULE_4__["default"]["".concat(taskId.subject)].questionsArray[taskId.questionNumber].answer === _this.answearInput.current.value) {
+        getDamage('monster');
+      } else {
+        getDamage('user');
+      }
+    });
+
+    return _this;
+  }
+
+  _createClass(Task, [{
+    key: "render",
+    value: function render() {
+      var _this$props2 = this.props,
+          taskId = _this$props2.taskId,
+          btnParam = _this$props2.btnParam,
+          taskNum = _this$props2.taskNum,
+          getDamage = _this$props2.getDamage;
+      var isOpenModal = this.state.isOpenModal;
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: classnames__WEBPACK_IMPORTED_MODULE_1___default()('modal-overlay', {
+          closed: !isOpenModal
+        }),
+        id: "modal-overlay"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: classnames__WEBPACK_IMPORTED_MODULE_1___default()('modal', {
+          closed: !isOpenModal
+        }),
+        id: "modal",
+        "aria-hidden": "true",
+        "aria-labelledby": "modalTitle",
+        "aria-describedby": "modalDescription",
+        role: "dialog"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_taskParam__WEBPACK_IMPORTED_MODULE_3__["taskList"], {
+        id: taskId,
+        answearInput: this.answearInput
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "button",
+        className: "close-button",
+        id: "close-button",
+        title: btnParam,
+        onClick: this.closeWindow
+      }, btnParam)));
+    }
+  }]);
+
+  return Task;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (Task);
+
+/***/ }),
+
+/***/ "./src/screens/task/taskParam.js":
+/*!***************************************!*\
+  !*** ./src/screens/task/taskParam.js ***!
+  \***************************************/
+/*! exports provided: taskList, btnParam, taskNum */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "taskList", function() { return taskList; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "btnParam", function() { return btnParam; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "taskNum", function() { return taskNum; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_tasks_tasks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/tasks/tasks */ "./src/components/tasks/tasks.js");
+ // import task
+
+
+var tasks = _components_tasks_tasks__WEBPACK_IMPORTED_MODULE_1__["default"];
+
+function taskNum() {
+  var randValue = {
+    subject: '',
+    questionNumber: 0
+  };
+
+  switch (Math.floor(Math.random() * 2) + 1) {
+    case 1:
+      randValue.subject = 'math';
+      break;
+
+    case 2:
+      randValue.subject = 'translate';
+      break;
+
+    default:
+      randValue.subject = 'math';
+      break;
+  }
+
+  randValue.questionNumber = Math.floor(Math.random() * (tasks["".concat(randValue.subject)].questionsArray.length - 1)) + 1;
+  return randValue;
+}
+
+var taskList = function taskList(_ref) {
+  var id = _ref.id,
+      answearInput = _ref.answearInput;
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "chooseTask"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+    className: "head"
+  }, "Answer the question"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    className: "question"
+  }, tasks["".concat(id.subject)].question), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    className: "task"
+  }, tasks["".concat(id.subject)].questionsArray[id.questionNumber].task, ' '), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    ref: answearInput,
+    type: "text",
+    className: "userAnswer"
+  }));
+};
+
+var btnParam = 'Answer';
+
+
+/***/ }),
+
+/***/ "./src/screens/task/taskParam.sass":
+/*!*****************************************!*\
+  !*** ./src/screens/task/taskParam.sass ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ 0:
-/*!*****************************************************************************************************************************************************************************************************************************************************!*\
-  !*** multi ./src/app.js ./src/screens/home/home.sass ./src/components/login/login.sass ./src/screens/login/loginParam.sass ./src/screens/battle/battle.sass ./src/components/healthBar/heathBar.sass ./src/screens/chooseTask/chooseTaskParam.sass ***!
-  \*****************************************************************************************************************************************************************************************************************************************************/
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** multi ./src/app.js ./src/screens/home/home.sass ./src/components/login/login.sass ./src/screens/login/loginParam.sass ./src/screens/battle/battle.sass ./src/components/healthBar/heathBar.sass ./src/screens/task/taskParam.sass ./src/screens/gameEnd/gameEnd.sass ./src/components/navBar/navBar.sass ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -35914,7 +36350,9 @@ __webpack_require__(/*! ./src/components/login/login.sass */"./src/components/lo
 __webpack_require__(/*! ./src/screens/login/loginParam.sass */"./src/screens/login/loginParam.sass");
 __webpack_require__(/*! ./src/screens/battle/battle.sass */"./src/screens/battle/battle.sass");
 __webpack_require__(/*! ./src/components/healthBar/heathBar.sass */"./src/components/healthBar/heathBar.sass");
-module.exports = __webpack_require__(/*! ./src/screens/chooseTask/chooseTaskParam.sass */"./src/screens/chooseTask/chooseTaskParam.sass");
+__webpack_require__(/*! ./src/screens/task/taskParam.sass */"./src/screens/task/taskParam.sass");
+__webpack_require__(/*! ./src/screens/gameEnd/gameEnd.sass */"./src/screens/gameEnd/gameEnd.sass");
+module.exports = __webpack_require__(/*! ./src/components/navBar/navBar.sass */"./src/components/navBar/navBar.sass");
 
 
 /***/ })
