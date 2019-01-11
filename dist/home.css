@@ -1,0 +1,149 @@
+html {
+  font-family: 'Special Elite', cursive; }
+
+body {
+  background-image: url("/src/screens/home/img/backgroundImg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0;
+  padding: 0; }
+
+canvas {
+  display: block; }
+
+.navBar {
+  height: 40px;
+  background-color: #222222;
+  color: whitesmoke;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  padding: 20px 200px; }
+  .navBar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 40px; }
+.modal {
+  width: 600px;
+  max-width: 100%;
+  height: 400px;
+  max-height: 100%;
+  position: fixed;
+  z-index: 100;
+  border-radius: 5px;
+  left: 50%;
+  top: 50%;
+  padding: 10px;
+  transform: translate(-50%, -50%);
+  background: white;
+  box-shadow: 0 0 60px 10px rgba(0, 0, 0, 0.9);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; }
+
+.closed {
+  display: none; }
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); }
+
+.close-button {
+  border: 0;
+  background: black;
+  color: white;
+  padding: 5px 10px;
+  font-size: 1.3rem;
+  border-radius: 5px;
+  cursor: pointer; }
+.loginHead {
+  font-size: 45px; }
+
+.loginDescr {
+  text-align: center;
+  padding: 0;
+  margin: 0; }
+
+.loginInput {
+  z-index: 0;
+  width: 200px;
+  height: 30px;
+  border: 2px #dddddd solid;
+  border-radius: 5px;
+  padding: 2px 10px;
+  margin: 20px; }
+.battleArea {
+  margin-top: 30px;
+  width: 100%;
+  display: flex;
+  flex-direction: row; }
+.healthBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 20px 0px;
+  padding: 0px 100px; }
+  .healthBar .userHealth, .healthBar .monsterHealth, .healthBar .healthBlock {
+    padding: 5px;
+    border: 2px solid black;
+    border-radius: 3px;
+    display: flex; }
+    .healthBar .userHealth .healthBlock, .healthBar .monsterHealth .healthBlock, .healthBar .healthBlock .healthBlock {
+      background-color: green;
+      width: 60px;
+      height: 20px;
+      margin: 1px; }
+
+.btn {
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  outline: none; }
+
+.attackBtn {
+  width: 130px;
+  height: 44px;
+  background: #cb4e4e;
+  color: #fff;
+  font-family: 'Special Elite', cursive;
+  font-size: 25px;
+  box-shadow: 0 6px #ab3c3c;
+  text-align: center;
+  transition: none;
+  border-radius: 40px; }
+
+.attackBtn:hover, .attackBtn:active {
+  background-color: #AB3C3C;
+  margin-top: 2px;
+  box-shadow: 0 4px #ab3c3c; }
+.chooseTask {
+  height: inherit;
+  text-align: center; }
+  .chooseTask .question {
+    font-size: 30px;
+    margin: 30px;
+    margin-top: 50px; }
+  .chooseTask .task {
+    font-size: 25px; }
+  .chooseTask .head {
+    font-size: 45px;
+    padding: 0;
+    margin: 0; }
+  .chooseTask input {
+    z-index: 0;
+    width: 200px;
+    height: 30px;
+    border: 2px #dddddd solid;
+    border-radius: 5px;
+    padding: 2px 10px;
+    margin: 20px; }
