@@ -1,0 +1,49 @@
+.healthBar
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    margin: 20px 0px
+    padding: 0px 100px
+    .userHealth, .monsterHealth, .healthBlock
+        padding: 5px
+        border: 2px solid black
+        border-radius: 3px
+        display: flex
+        .healthBlock
+            background-color: green
+            width: 60px
+            height: 20px
+            margin: 1px
+
+.btn
+    border: none
+    cursor: pointer
+    display: inline-block
+    text-transform: uppercase
+    letter-spacing: 1px
+    font-weight: 700
+    outline: none
+
+.attackBtn
+    width: 130px
+    height: 44px
+    background: #cb4e4e
+    color: #fff
+    font-family: 'Special Elite', cursive
+    font-size: 25px
+    box-shadow: 0 6px #ab3c3c
+    text-align: center
+    transition: none
+    border-radius: 40px
+.attackBtn:hover, .attackBtn:active
+    background-color: #AB3C3C
+    margin-top: 2px
+    box-shadow: 0 4px #ab3c3c
+
+.blinkHealth
+  animation: blinker 2s linear infinite
+
+
+@keyframes blinker
+  50%
+      opacity: 0
